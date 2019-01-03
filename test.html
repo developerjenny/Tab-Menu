@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.wrapper{
+			width: 1000px;
+			height: 420px;
+			margin: 50px auto;
+
+		}
+		.tabMenu{
+
+			background-color: #eee;
+			width: inherit;
+			height: 50px;
+			border: 1px #ccc solid;
+		}
+		.menu{
+			float: left;
+			font-weight: 100;
+			height: inherit;
+			outline: none;
+			border: none;
+			cursor: pointer;
+			background-color: #eee;
+			font-size: 15px;
+			padding: 14px 16px;
+		}
+		.active, .menu:hover{
+			background-color: #ccc;
+		}
+		.active:after{
+			background-color: #eee;
+		}
+		.description{
+			padding: 6px 12px;
+			border: 1px #ccc solid;
+			border-top: none;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="tabMenu">
+			<button class="menu" >
+				London
+			</button>
+			<button class="menu" >
+				Paris
+			</button>
+			<button class="menu" >
+				Tokyo
+			</button>
+		</div>
+			<div class="description">
+				<h5>London</h5>
+				<p>London is the capital city of England.</p>
+			</div>
+			<div class="description">
+				<h5>Paris</h5>
+				<p>Paris is the capital of France.</p>
+			</div>
+			<div class="description">
+				<h5>Tokyo</h5>
+				<p>Tokyo is the capital of Japan.</p>
+			</div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	var tab = document.getElementsByClassName("menu");
+	var i;
+	for(i=0; i<tab.length; i++){
+		tab[i].onclick = function(){
+			var current = tab[0];
+			while(current){
+				if(current.tagName === "BUTTON"){
+					current.classList.remove("active");
+				}
+				current = current.nextSibling;
+			}
+			this.classList.add("active");
+		};
+	}
+</script>
+</html>
+
